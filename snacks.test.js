@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, isPalindrome } = require('./snacks');
+const { getInitials, createSlug, average, isPalindrome, findPostById } = require('./snacks');
 
 // Snack 1 
 
@@ -35,4 +35,18 @@ test('La funzione isPalindrome verifica se una stringa è un palindromo.', () =>
 test('La funzione createSlug lancia un errore se il titolo è vuoto o non valido.', () => {
     expect(() => createSlug("")).toThrow('Titolo non valido');
     expect(() => createSlug(null)).toThrow('Titolo non valido');
+});
+
+// Snack 7
+
+const posts = [
+    { id: 1, title: "Il simbolo perduto", slug: "il-simbolo-perduto" },
+    { id: 2, title: "La prima indagine di Momtalbano", slug: "la-prima-indagine-di-montalbano" },
+    { id: 3, title: "Il primo dei templari", slug: "il-primo-dei-templari" },
+]
+
+test('La funzione findPostById restituisce il post corretto dato l’array di post e l’id.', () => {
+    expect(findPostById(posts, 1)).toEqual({ id: 1, title: "Il simbolo perduto", slug: "il-simbolo-perduto" });
+    expect(findPostById(posts, "ciao")).toThrow('ciao is not a valid id');
+    expect(findPostById([1,2,3,4,5], 4)).toThrow("L'array deve contenere oggetti con una proprietà id");
 });

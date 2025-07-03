@@ -26,4 +26,20 @@ function isPalindrome(word) {
   return wordReversed === word.trim();
 }
 
-module.exports = { getInitials, createSlug, average, isPalindrome };
+function findPostById(posts, id) {
+    if (isNaN(id)) {
+        throw new Error(`${id} is not a valid id`);
+    }
+    posts.forEach((post) => {
+        if (
+            post.id === undefined ||
+            post.title === undefined ||
+            post.slug === undefined
+        ) {
+            throw new Error(`Invalid post id in posts array`);
+        }
+    });
+    return posts.find((post) => post.id === id) || null;
+}
+
+module.exports = { getInitials, createSlug, average, isPalindrome, findPostById };
