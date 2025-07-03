@@ -5,7 +5,7 @@ function getInitials(nomeCompleto) {
 }
 
 function createSlug(testo) {
-   return testo.toLowerCase(); 
+   return testo.toLowerCase().replaceAll(" ", "-"); 
 }
 
 function average(numbers) {
