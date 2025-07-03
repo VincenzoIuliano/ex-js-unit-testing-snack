@@ -8,5 +8,13 @@ function createSlug(testo) {
    return testo.toLowerCase(); 
 }
 
-
-module.exports = { getInitials , createSlug };
+function average(numbers) {
+    numbers.forEach(num => {
+        if (typeof num !== 'number') {
+            throw new Error('All elements must be numbers');
+        }
+    });
+    return numbers.reduce((acc, num) => acc + num, 0) / numbers.length;
+}
+   
+module.exports = { getInitials, createSlug, average };
