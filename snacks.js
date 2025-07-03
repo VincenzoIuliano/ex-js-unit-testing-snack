@@ -16,5 +16,10 @@ function average(numbers) {
     });
     return numbers.reduce((acc, num) => acc + num, 0) / numbers.length;
 }
+
+function isPalindrome(word) {
+    const wordReversed = word.trim().split('').reverse().join('');
+    return wordReversed === word.trim();
+}
    
-module.exports = { getInitials, createSlug, average };
+module.exports = { getInitials, createSlug, average, isPalindrome };
